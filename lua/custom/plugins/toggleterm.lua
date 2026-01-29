@@ -5,7 +5,7 @@ return{
     keys = {
       { '<c-\\>', '<cmd>ToggleTerm<cr>', desc = 'Toggle Terminal' },
       {
-        '<leader>gg',
+        '<leader>lg',
         function()
           if vim.fn.executable 'lazygit' ~= 1 then
             vim.schedule(function()

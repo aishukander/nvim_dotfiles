@@ -7,6 +7,13 @@ return{
       {
         '<leader>gg',
         function()
+          if vim.fn.executable 'lazygit' ~= 1 then
+            vim.schedule(function()
+              vim.notify('lazygit not found. Please install it', vim.log.levels.ERROR)
+            end)
+            return
+          end
+
           local git_path = vim.fs.find('.git', { upward = true })[1]
           
           if not git_path then
@@ -16,8 +23,8 @@ return{
 
           local dir = vim.fs.dirname(git_path)
           local Terminal = require('toggleterm.terminal').Terminal
-          local gitui = Terminal:new { 
-            cmd = 'gitui', 
+          local lazygit = Terminal:new { 
+            cmd = 'lazygit', 
             hidden = true,
             dir = dir,
             direction = 'float',
@@ -25,9 +32,9 @@ return{
               border = 'curved',
             },
           }
-          gitui:toggle()
+          lazygit:toggle()
         end,
-        desc = 'GitUI',
+        desc = 'LazyGit',
       },
     },
     opts = {

@@ -7,10 +7,15 @@ return{
       {
         '<leader>gg',
         function()
-          local Terminal = require('toggleterm.terminal').Terminal
           local git_path = vim.fs.find('.git', { upward = true })[1]
-          local dir = git_path and vim.fs.dirname(git_path) or nil
+          
+          if not git_path then
+            vim.notify("Git repository not found!", vim.log.levels.WARN)
+            return
+          end
 
+          local dir = vim.fs.dirname(git_path)
+          local Terminal = require('toggleterm.terminal').Terminal
           local gitui = Terminal:new { 
             cmd = 'gitui', 
             hidden = true,

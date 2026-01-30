@@ -11,21 +11,11 @@ return {
       { 'S', mode = { 'n', 'x', 'o' }, function() require('flash').treesitter() end, desc = 'Flash Treesitter' },
     },
   },
-
   {
-    'akinsho/bufferline.nvim',
-    event = 'VeryLazy',
-    version = '*',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    opts = {
-      options = {
-        mode = 'buffers',
-        separator_style = 'slant', 
-        diagnostics = 'nvim_lsp',
-        show_buffer_close_icons = false,
-        show_close_icon = false,
-        always_show_bufferline = false,
-      },
-    },
+    'lambdalisue/suda.vim',
+    init = function()
+      vim.g.suda_smart_edit = 1
+      vim.g['suda#prompt'] = 'Enter sudo password: '
+    end,
   },
 }

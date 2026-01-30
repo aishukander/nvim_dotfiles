@@ -23,7 +23,7 @@ return {
       require('yazi').setup(opts)
     else
       vim.schedule(function()
-        vim.notify('Yazi not found! Please install it', vim.log.levels.WARN)
+        vim.notify('Yazi not found! Please install it', vim.log.levels.ERROR)
       end)
     end
   end,

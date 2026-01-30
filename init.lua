@@ -181,7 +181,7 @@ vim.diagnostic.config {
 
   -- Can switch between these as you prefer
   virtual_text = true, -- Text shows up at the end of the line
-  virtual_lines = false, -- Teest shows up underneath the line, with virtual lines
+  virtual_lines = true, -- Teest shows up underneath the line, with virtual lines
 
   -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
   jump = { float = true },
@@ -616,7 +616,6 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'lua-language-server', -- Lua Language server
         'stylua', -- Used to format Lua code
-        'gitui',
         -- You can add other tools here that you want Mason to install
       })
 
@@ -752,6 +751,20 @@ require('lazy').setup({
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'super-tab',
+        ['<Tab>'] = {
+          function(cmp)
+            if cmp.snippet_active() then return cmp.accept() end
+            
+            local success, suggestion = pcall(require, 'copilot.suggestion')
+            if success and suggestion.is_visible() then
+              suggestion.accept()
+              return true
+            end
+          end,
+          'select_next',
+          'snippet_forward',
+          'fallback',
+        },
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps

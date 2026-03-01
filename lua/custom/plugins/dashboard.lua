@@ -26,6 +26,13 @@ return {
               key = 'a',
             },
             {
+              icon = ' ',
+              icon_hl = '@function',
+              desc = 'Telescope                         ',
+              action = 'Telescope find_files',
+              key = 's',
+            },
+            {
               icon = ' ',
               icon_hl = '@number',
               desc = 'Recent Files                      ',

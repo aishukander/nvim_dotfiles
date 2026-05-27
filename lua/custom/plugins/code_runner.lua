@@ -24,7 +24,7 @@ return {
           cpp = 'cd $dir && g++ -fexec-charset=UTF-8 -std=c++17 $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
           ['objective-c'] = 'cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
           php = 'php',
-          python = "if [ -f .venv/bin/python ]; then .venv/bin/python -u '$fileName'; elif [ -f venv/bin/python ]; then venv/bin/python -u '$fileName'; else python -u '$fileName'; fi",
+          python = "sh -c \"if [ -f .venv/bin/python ]; then .venv/bin/python -u '$fileName'; elif [ -f venv/bin/python ]; then venv/bin/python -u '$fileName'; else python -u '$fileName'; fi\"",
           perl = 'perl',
           perl6 = 'perl6',
           ruby = 'ruby',

@@ -4,6 +4,7 @@ return{
     version = '*',
     keys = {
       { '<c-\\>', '<cmd>ToggleTerm<cr>', desc = 'Toggle Terminal' },
+      { '<leader>rt', '<cmd>ToggleTerm<cr>', desc = 'Open Terminal' },
       {
         '<leader>lg',
         function()

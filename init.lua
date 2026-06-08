@@ -87,6 +87,12 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -718,9 +724,7 @@ require('lazy').setup({
           --    https://github.com/rafamadriz/friendly-snippets
           {
             'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
+            config = function() require('luasnip.loaders.from_vscode').lazy_load() end,
           },
         },
         opts = {},
@@ -755,7 +759,7 @@ require('lazy').setup({
         ['<Tab>'] = {
           function(cmp)
             if cmp.snippet_active() then return cmp.accept() end
-            
+
             local success, suggestion = pcall(require, 'copilot.suggestion')
             if success and suggestion.is_visible() then
               suggestion.accept()

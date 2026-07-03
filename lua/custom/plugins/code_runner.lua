@@ -21,7 +21,7 @@ return {
           java = 'cd $dir && javac $fileName && java $fileNameWithoutExt',
           c = 'cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
           zig = 'zig run',
-          cpp = 'cd $dir && g++ -fexec-charset=UTF-8 -std=c++17 $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
+          cpp = 'cd $dir && g++ -fexec-charset=UTF-8 -std=c++23 $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
           ['objective-c'] = 'cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
           php = 'php',
           python = "sh -c \"if [ -f .venv/bin/python ]; then .venv/bin/python -u '$fileName'; elif [ -f venv/bin/python ]; then venv/bin/python -u '$fileName'; else python -u '$fileName'; fi\"",

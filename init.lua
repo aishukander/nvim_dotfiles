@@ -756,20 +756,6 @@ require('lazy').setup({
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'super-tab',
-        ['<Tab>'] = {
-          function(cmp)
-            if cmp.snippet_active() then return cmp.accept() end
-
-            local success, suggestion = pcall(require, 'copilot.suggestion')
-            if success and suggestion.is_visible() then
-              suggestion.accept()
-              return true
-            end
-          end,
-          'select_next',
-          'snippet_forward',
-          'fallback',
-        },
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -788,7 +774,7 @@ require('lazy').setup({
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets' },
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
 
       snippets = { preset = 'luasnip' },

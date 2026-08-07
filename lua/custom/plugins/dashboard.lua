@@ -13,8 +13,10 @@ local function load_dashboard()
     startup_ms = math.floor((vim.uv.hrtime() - vim.g.startup_start_time) / 1e6 + 0.5)
   end
 
+  local packages = vim.pack.get()
+  local plugins = #packages
   local loaded_plugins = 0
-  for _, plugin in ipairs(vim.pack.get()) do
+  for _, plugin in ipairs(packages) do
     if plugin.active then
       loaded_plugins = loaded_plugins + 1
     end
@@ -91,7 +93,7 @@ local function load_dashboard()
         return {
           ('📦 %d/%d plugins loaded · ⚡ nvim loaded in %d ms'):format(
             loaded_plugins,
-            #vim.pack.get(),
+            plugins,
             startup_ms
           ),
         }

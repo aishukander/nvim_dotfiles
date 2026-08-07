@@ -10,7 +10,7 @@ local function load_dashboard()
 
   local startup_ms = 0
   if vim.g.startup_start_time then
-    startup_ms = math.floor((vim.loop.hrtime() - vim.g.startup_start_time) / 1e6 + 0.5)
+    startup_ms = math.floor((vim.uv.hrtime() - vim.g.startup_start_time) / 1e6 + 0.5)
   end
 
   local loaded_plugins = 0

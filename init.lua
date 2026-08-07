@@ -88,6 +88,8 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- SECTION 1: OPTIONS
 -- Core Neovim settings, leaders, options
 -- ============================================================
+vim.g.startup_start_time = vim.uv.hrtime()
+
 do
   -- Enable faster startup by caching compiled Lua modules
   vim.loader.enable()

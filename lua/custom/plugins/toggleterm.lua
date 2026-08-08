@@ -1,14 +1,10 @@
-local function gh(repo)
-  return 'https://github.com/' .. repo
-end
-
 local loaded = false
 
 local function load_toggleterm()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { gh 'akinsho/toggleterm.nvim' }
+  vim.pack.add { 'https://github.com/akinsho/toggleterm.nvim' }
 
   require('toggleterm').setup {
     open_mapping = [[<c-\>]],

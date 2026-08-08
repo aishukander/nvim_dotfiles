@@ -1,14 +1,10 @@
-local function gh(repo)
-  return 'https://github.com/' .. repo
-end
-
 local loaded = false
 
 local function load_copilot()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { gh 'zbirenbaum/copilot.lua' }
+  vim.pack.add { 'https://github.com/zbirenbaum/copilot.lua' }
 
   require('copilot').setup {
     filetypes = {

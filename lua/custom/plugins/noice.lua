@@ -1,16 +1,12 @@
-local function gh(repo)
-  return 'https://github.com/' .. repo
-end
-
 local loaded = false
 
 local function load_noice()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { gh 'MunifTanjim/nui.nvim' }
-  vim.pack.add { gh 'rcarriga/nvim-notify' }
-  vim.pack.add { gh 'folke/noice.nvim' }
+  vim.pack.add { 'https://github.com/MunifTanjim/nui.nvim' }
+  vim.pack.add { 'https://github.com/rcarriga/nvim-notify' }
+  vim.pack.add { 'https://github.com/folke/noice.nvim' }
 
   require('noice').setup {
     lsp = {

@@ -1,15 +1,11 @@
-local function gh(repo)
-  return 'https://github.com/' .. repo
-end
-
 local loaded = false
 
 local function load_dashboard()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { gh 'nvimdev/dashboard-nvim' }
-  vim.pack.add { gh 'nvim-tree/nvim-web-devicons' }
+  vim.pack.add { 'https://github.com/nvimdev/dashboard-nvim' }
+  vim.pack.add { 'https://github.com/nvim-tree/nvim-web-devicons' }
 
   vim.g.startup_ms = 0
   if vim.g.startup_start_time then

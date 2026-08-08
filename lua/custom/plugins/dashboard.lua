@@ -11,17 +11,18 @@ local function load_dashboard()
   vim.pack.add { gh 'nvimdev/dashboard-nvim' }
   vim.pack.add { gh 'nvim-tree/nvim-web-devicons' }
 
-  local startup_ms = 0
+  vim.g.startup_ms = 0
   if vim.g.startup_start_time then
-    startup_ms = math.floor((vim.uv.hrtime() - vim.g.startup_start_time) / 1e6 + 0.5)
+    vim.g.startup_ms = math.floor((vim.uv.hrtime() - vim.g.startup_start_time) / 1e6 + 0.5)
+    vim.g.startup_start_time = nil
   end
 
   local packages = vim.pack.get()
-  local plugins = #packages
-  local loaded_plugins = 0
+  vim.g.plugins = #packages
+  vim.g.loaded_plugins = 0
   for _, plugin in ipairs(packages) do
     if plugin.active then
-      loaded_plugins = loaded_plugins + 1
+      vim.g.loaded_plugins = vim.g.loaded_plugins + 1
     end
   end
 
@@ -92,9 +93,9 @@ local function load_dashboard()
       footer = function()
         return {
           ('📦 %d/%d plugins loaded · ⚡ nvim loaded in %d ms'):format(
-            loaded_plugins,
-            plugins,
-            startup_ms
+            vim.g.loaded_plugins,
+            vim.g.plugins,
+            vim.g.startup_ms
           ),
         }
       end,

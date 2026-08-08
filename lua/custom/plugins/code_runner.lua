@@ -33,7 +33,6 @@ local function load_code_runner()
       lua = 'lua',
       typescript = 'ts-node',
       rust = 'cd $dir && cargo run',
-      python = 'python',
     },
   }
 end

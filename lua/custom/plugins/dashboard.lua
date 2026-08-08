@@ -8,6 +8,9 @@ local function load_dashboard()
   if loaded then return end
   loaded = true
 
+  vim.pack.add { gh 'nvimdev/dashboard-nvim' }
+  vim.pack.add { gh 'nvim-tree/nvim-web-devicons' }
+
   local startup_ms = 0
   if vim.g.startup_start_time then
     startup_ms = math.floor((vim.uv.hrtime() - vim.g.startup_start_time) / 1e6 + 0.5)
@@ -21,9 +24,6 @@ local function load_dashboard()
       loaded_plugins = loaded_plugins + 1
     end
   end
-
-  vim.pack.add { gh 'nvimdev/dashboard-nvim' }
-  vim.pack.add { gh 'nvim-tree/nvim-web-devicons' }
 
   require('dashboard').setup {
     theme = 'doom',

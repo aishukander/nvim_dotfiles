@@ -5,7 +5,7 @@ local function load_dashboard()
   loaded = true
 
   vim.pack.add { 'https://github.com/nvimdev/dashboard-nvim' }
-  vim.pack.add { 'https://github.com/nvim-tree/nvim-web-devicons' }
+  vim.pack.add { 'https://github.com/nvim-mini/mini.nvim' }
 
   vim.g.startup_ms = 0
   if vim.g.startup_start_time then

@@ -103,6 +103,15 @@ local function load_dashboard()
   }
 end
 
+local function run_dashboard(command)
+  load_dashboard()
+  vim.schedule(function()
+    vim.cmd(command)
+  end)
+end
+
+vim.keymap.set('n', '<leader>H', function() run_dashboard 'Dashboard' end, { desc = 'Return to Dashboard' })
+
 vim.api.nvim_create_autocmd('VimEnter', {
   once = true,
   callback = load_dashboard,

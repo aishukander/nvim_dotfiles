@@ -25,7 +25,7 @@ vim.keymap.set('n', '<leader>rt', function()
   vim.cmd 'ToggleTerm'
 end, { desc = 'Open Terminal' })
 
-vim.keymap.set('n', '<leader>lg', function()
+vim.keymap.set('n', '<leader>g', function()
   load_toggleterm()
 
   if vim.fn.executable 'lazygit' ~= 1 then
@@ -35,7 +35,14 @@ vim.keymap.set('n', '<leader>lg', function()
     return
   end
 
-  local git_path = vim.fs.find('.git', { upward = true })[1]
+  local current_file = vim.api.nvim_buf_get_name(0)
+  local search_path = current_file ~= "" and vim.fn.fnamemodify(current_file, ":p:h") or vim.fn.getcwd()
+
+  local git_path = vim.fs.find('.git', { 
+    upward = true, 
+    path = search_path 
+  })[1]
+
   if not git_path then
     vim.notify('Git repository not found!', vim.log.levels.WARN)
     return
@@ -53,4 +60,4 @@ vim.keymap.set('n', '<leader>lg', function()
     },
   }
   lazygit:toggle()
-end, { desc = 'LazyGit' })
+end, { desc = 'Open LazyGit' })

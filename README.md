@@ -91,7 +91,7 @@ it's recommended to track it in version control (see `:help vim.pack-lockfile`).
 <details><summary> Linux and Mac </summary>
 
 ```sh
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+sh -c 'git clone https://github.com/aishukander/nvim_dotfiles.git "${xdg_config_home:-$home/.config}"/nvim'
 ```
 
 </details>
@@ -101,13 +101,13 @@ git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HO
 If you're using `cmd.exe`:
 
 ```
-git clone https://github.com/nvim-lua/kickstart.nvim.git "%localappdata%\nvim"
+git clone https://github.com/aishukander/nvim_dotfiles.git "%localappdata%\nvim"
 ```
 
 If you're using `powershell.exe`
 
 ```
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${env:LOCALAPPDATA}\nvim"
+git clone https://github.com/aishukander/nvim_dotfiles.git "${env:LOCALAPPDATA}\nvim"
 ```
 
 </details>

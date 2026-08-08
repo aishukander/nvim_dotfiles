@@ -18,3 +18,6 @@ vim.keymap.set('n', '<leader>bo', function()
     end
   end
 end, { desc = 'Delete Other Buffers' })
+
+-- lsp keymaps
+vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = 'rename and applies across project' })

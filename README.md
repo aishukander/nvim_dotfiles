@@ -91,7 +91,7 @@ it's recommended to track it in version control (see `:help vim.pack-lockfile`).
 <details><summary> Linux and Mac </summary>
 
 ```sh
-sh -c 'git clone https://github.com/aishukander/nvim_dotfiles.git "${xdg_config_home:-$home/.config}"/nvim'
+sh -c 'git clone https://github.com/aishukander/nvim_dotfiles.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim'
 ```
 
 </details>

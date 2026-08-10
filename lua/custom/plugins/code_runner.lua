@@ -55,6 +55,14 @@ vim.api.nvim_create_autocmd('CmdUndefined', {
   callback = function() run_code_runner 'RunProject' end,
 })
 
-vim.keymap.set('n', '<leader>rr', function() run_code_runner 'RunCode' end, { desc = 'Run Code' })
-vim.keymap.set('n', '<leader>rf', function() run_code_runner 'RunFile' end, { desc = 'Run File' })
-vim.keymap.set('n', '<leader>rp', function() run_code_runner 'RunProject' end, { desc = 'Run Project' })
+vim.keymap.set('n', '<leader>rr', function()
+  run_code_runner 'RunCode'
+end, { desc = 'Run Code' })
+
+vim.keymap.set('n', '<leader>rf', function()
+  run_code_runner 'RunFile'
+end, { desc = 'Run File' })
+
+vim.keymap.set('n', '<leader>rp', function()
+  run_code_runner 'RunProject'
+end, { desc = 'Run Project' })

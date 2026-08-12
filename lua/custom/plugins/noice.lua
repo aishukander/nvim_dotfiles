@@ -1,14 +1,18 @@
+vim.pack.add({
+  'https://github.com/MunifTanjim/nui.nvim',
+  'https://github.com/rcarriga/nvim-notify',
+  'https://github.com/folke/noice.nvim',
+}, { load = function() end })
+
 local loaded = false
 
 local function load_noice()
   if loaded then return end
   loaded = true
 
-  vim.pack.add({
-      'https://github.com/MunifTanjim/nui.nvim',
-      'https://github.com/rcarriga/nvim-notify',
-      'https://github.com/folke/noice.nvim',
-  }, { confirm = false })
+  vim.cmd('packadd nui.nvim')
+  vim.cmd('packadd nvim-notify')
+  vim.cmd('packadd noice.nvim')
 
   require('noice').setup {
     lsp = {

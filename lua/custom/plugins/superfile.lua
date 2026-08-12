@@ -1,10 +1,12 @@
+vim.pack.add ({ 'https://github.com/aquibbaig/superfile.nvim' }, { load = function() end })
+
 local loaded = false
 
 local function load_superfile()
   if loaded then return end
   loaded = true
 
-  vim.pack.add ({ 'https://github.com/aquibbaig/superfile.nvim' }, { confirm = false })
+  vim.cmd('packadd superfile.nvim')
 
   require('superfile').setup {
     command = 'spf',

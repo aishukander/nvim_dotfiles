@@ -1,13 +1,16 @@
+vim.pack.add({
+  'https://github.com/nvim-mini/mini.nvim',
+  'https://github.com/akinsho/bufferline.nvim',
+}, { load = function() end })
+
 local loaded = false
 
 local function load_bufferline()
   if loaded then return end
   loaded = true
 
-  vim.pack.add({
-      'https://github.com/nvim-mini/mini.nvim',
-      'https://github.com/akinsho/bufferline.nvim',
-  }, { confirm = false })
+  vim.cmd('packadd mini.nvim')
+  vim.cmd('packadd bufferline.nvim')
 
   require('bufferline').setup {
     options = {

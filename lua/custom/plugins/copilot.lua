@@ -1,10 +1,12 @@
+vim.pack.add ({ 'https://github.com/zbirenbaum/copilot.lua' }, { load = function() end })
+
 local loaded = false
 
 local function load_copilot()
   if loaded then return end
   loaded = true
 
-  vim.pack.add ({ 'https://github.com/zbirenbaum/copilot.lua' }, { confirm = false })
+  vim.cmd('packadd copilot.lua')
 
   require('copilot').setup {
     filetypes = {

@@ -1,10 +1,12 @@
+vim.pack.add ({ 'https://github.com/CRAG666/code_runner.nvim' }, { load = function() end })
+
 local loaded = false
 
 local function load_code_runner()
   if loaded then return end
   loaded = true
 
-  vim.pack.add ({ 'https://github.com/CRAG666/code_runner.nvim' }, { confirm = false })
+  vim.cmd('packadd code_runner.nvim')
 
   require('code_runner').setup {
     mode = 'term',

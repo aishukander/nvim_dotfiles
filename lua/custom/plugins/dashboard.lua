@@ -1,13 +1,16 @@
+vim.pack.add({
+  'https://github.com/nvim-mini/mini.nvim',
+  'https://github.com/nvimdev/dashboard-nvim',
+}, { load = function() end })
+
 local loaded = false
 
 local function load_dashboard()
   if loaded then return end
   loaded = true
 
-  vim.pack.add({
-      'https://github.com/nvimdev/dashboard-nvim',
-      'https://github.com/nvim-mini/mini.nvim',
-  }, { confirm = false })
+  vim.cmd('packadd mini.nvim')
+  vim.cmd('packadd dashboard-nvim')
 
   vim.g.startup_ms = 0
   if vim.g.startup_start_time then

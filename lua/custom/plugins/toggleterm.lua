@@ -1,10 +1,12 @@
+vim.pack.add ({ 'https://github.com/akinsho/toggleterm.nvim' }, { load = function() end })
+
 local loaded = false
 
 local function load_toggleterm()
   if loaded then return end
   loaded = true
 
-  vim.pack.add ({ 'https://github.com/akinsho/toggleterm.nvim' }, { confirm = false })
+  vim.cmd('packadd toggleterm.nvim')
 
   require('toggleterm').setup {
     open_mapping = [[<c-\>]],

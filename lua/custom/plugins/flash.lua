@@ -1,10 +1,12 @@
+vim.pack.add ({ 'https://github.com/folke/flash.nvim' }, { load = function() end })
+
 local flash_loaded = false
 
 local function load_flash()
   if flash_loaded then return end
   flash_loaded = true
 
-  vim.pack.add ({ 'https://github.com/folke/flash.nvim' }, { confirm = false })
+  vim.cmd('packadd flash.nvim')
 
   require('flash').setup({})
 end

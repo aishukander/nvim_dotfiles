@@ -1,4 +1,6 @@
-vim.pack.add ({ 'https://github.com/CRAG666/code_runner.nvim' }, { load = function() end })
+vim.schedule(function()
+  vim.pack.add ({ 'https://github.com/CRAG666/code_runner.nvim' }, { load = function() end })
+end)
 
 local loaded = false
 

@@ -1,8 +1,10 @@
-vim.pack.add({
-  'https://github.com/nvim-treesitter/nvim-treesitter',
-  'https://github.com/nvim-mini/mini.nvim',
-  'https://github.com/MeanderingProgrammer/render-markdown.nvim',
-}, { load = function() end })
+vim.schedule(function()
+  vim.pack.add({
+    'https://github.com/nvim-treesitter/nvim-treesitter',
+    'https://github.com/nvim-mini/mini.nvim',
+    'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+  }, { load = function() end })
+end)
 
 local loaded = false
 

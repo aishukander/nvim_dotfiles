@@ -1,4 +1,6 @@
-vim.pack.add ({ 'https://github.com/folke/flash.nvim' }, { load = function() end })
+vim.schedule(function()
+  vim.pack.add ({ 'https://github.com/folke/flash.nvim' }, { load = function() end })
+end)
 
 local flash_loaded = false
 

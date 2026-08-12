@@ -1,7 +1,9 @@
-vim.pack.add({
-  'https://github.com/nvim-mini/mini.nvim',
-  'https://github.com/akinsho/bufferline.nvim',
-}, { load = function() end })
+vim.schedule(function()
+  vim.pack.add({
+    'https://github.com/nvim-mini/mini.nvim',
+    'https://github.com/akinsho/bufferline.nvim',
+  }, { load = function() end })
+end)
 
 local loaded = false
 

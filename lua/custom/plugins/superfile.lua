@@ -1,4 +1,6 @@
-vim.pack.add ({ 'https://github.com/aquibbaig/superfile.nvim' }, { load = function() end })
+vim.schedule(function()
+  vim.pack.add ({ 'https://github.com/aquibbaig/superfile.nvim' }, { load = function() end })
+end)
 
 local loaded = false
 

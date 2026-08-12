@@ -4,7 +4,7 @@ local function load_superfile()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { 'https://github.com/aquibbaig/superfile.nvim' }
+  vim.pack.add ({ 'https://github.com/aquibbaig/superfile.nvim' }, { confirm = false })
 
   require('superfile').setup {
     command = 'spf',

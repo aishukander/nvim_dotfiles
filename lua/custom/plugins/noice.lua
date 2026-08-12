@@ -4,9 +4,11 @@ local function load_noice()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { 'https://github.com/MunifTanjim/nui.nvim' }
-  vim.pack.add { 'https://github.com/rcarriga/nvim-notify' }
-  vim.pack.add { 'https://github.com/folke/noice.nvim' }
+  vim.pack.add({
+      'https://github.com/MunifTanjim/nui.nvim',
+      'https://github.com/rcarriga/nvim-notify',
+      'https://github.com/folke/noice.nvim',
+  }, { confirm = false })
 
   require('noice').setup {
     lsp = {

@@ -4,8 +4,10 @@ local function load_dashboard()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { 'https://github.com/nvimdev/dashboard-nvim' }
-  vim.pack.add { 'https://github.com/nvim-mini/mini.nvim' }
+  vim.pack.add({
+      'https://github.com/nvimdev/dashboard-nvim',
+      'https://github.com/nvim-mini/mini.nvim',
+  }, { confirm = false })
 
   vim.g.startup_ms = 0
   if vim.g.startup_start_time then

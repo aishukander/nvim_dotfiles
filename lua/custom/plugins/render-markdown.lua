@@ -4,9 +4,11 @@ local function load_render_markdown()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { 'https://github.com/nvim-treesitter/nvim-treesitter' }
-  vim.pack.add { 'https://github.com/nvim-mini/mini.nvim' }
-  vim.pack.add { 'https://github.com/MeanderingProgrammer/render-markdown.nvim' }
+  vim.pack.add({
+      'https://github.com/nvim-treesitter/nvim-treesitter',
+      'https://github.com/nvim-mini/mini.nvim',
+      'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+  }, { confirm = false })
 
   require('render-markdown').setup({
     completions = { lsp = { enabled = true } },

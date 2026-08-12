@@ -4,7 +4,7 @@ local function load_toggleterm()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { 'https://github.com/akinsho/toggleterm.nvim' }
+  vim.pack.add ({ 'https://github.com/akinsho/toggleterm.nvim' }, { confirm = false })
 
   require('toggleterm').setup {
     open_mapping = [[<c-\>]],

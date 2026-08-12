@@ -4,8 +4,10 @@ local function load_bufferline()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { 'https://github.com/nvim-mini/mini.nvim' }
-  vim.pack.add { 'https://github.com/akinsho/bufferline.nvim' }
+  vim.pack.add({
+      'https://github.com/nvim-mini/mini.nvim',
+      'https://github.com/akinsho/bufferline.nvim',
+  }, { confirm = false })
 
   require('bufferline').setup {
     options = {

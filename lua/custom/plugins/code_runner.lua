@@ -4,7 +4,7 @@ local function load_code_runner()
   if loaded then return end
   loaded = true
 
-  vim.pack.add { 'https://github.com/CRAG666/code_runner.nvim' }
+  vim.pack.add ({ 'https://github.com/CRAG666/code_runner.nvim' }, { confirm = false })
 
   require('code_runner').setup {
     mode = 'term',

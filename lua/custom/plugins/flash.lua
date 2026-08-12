@@ -4,7 +4,8 @@ local function load_flash()
   if flash_loaded then return end
   flash_loaded = true
 
-  vim.pack.add { 'https://github.com/folke/flash.nvim' }
+  vim.pack.add ({ 'https://github.com/folke/flash.nvim' }, { confirm = false })
+
   require('flash').setup({})
 end
 

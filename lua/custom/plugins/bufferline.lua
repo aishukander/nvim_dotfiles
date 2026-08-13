@@ -5,12 +5,7 @@ vim.schedule(function()
   }, { load = function() end })
 end)
 
-local loaded = false
-
 local function load_bufferline()
-  if loaded then return end
-  loaded = true
-
   vim.cmd('packadd mini.nvim')
   vim.cmd('packadd bufferline.nvim')
 

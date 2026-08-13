@@ -6,12 +6,7 @@ vim.schedule(function()
   }, { load = function() end })
 end)
 
-local loaded = false
-
 local function load_render_markdown()
-  if loaded then return end
-  loaded = true
-
   vim.cmd('packadd nvim-treesitter')
   vim.cmd('packadd mini.nvim')
   vim.cmd('packadd render-markdown.nvim')

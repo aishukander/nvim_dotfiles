@@ -4,12 +4,7 @@ vim.pack.add({
   'https://github.com/folke/noice.nvim',
 }, { load = function() end })
 
-local loaded = false
-
 local function load_noice()
-  if loaded then return end
-  loaded = true
-
   vim.cmd('packadd nui.nvim')
   vim.cmd('packadd nvim-notify')
   vim.cmd('packadd noice.nvim')

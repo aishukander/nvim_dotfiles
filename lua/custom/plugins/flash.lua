@@ -9,8 +9,6 @@ local function load_flash()
   flash_loaded = true
 
   vim.cmd('packadd flash.nvim')
-
-  require('flash').setup({})
 end
 
 vim.keymap.set({ 'n', 'x', 'o' }, 's', function()

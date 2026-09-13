@@ -26,7 +26,7 @@ local function load_code_runner()
       cpp = 'cd $dir && g++ -fexec-charset=UTF-8 -std=c++23 $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
       ['objective-c'] = 'cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
       php = 'php',
-      python = "sh -c \"if [ -f .venv/bin/python ]; then .venv/bin/python -u '$fileName'; elif [ -f venv/bin/python ]; then venv/bin/python -u '$fileName'; else python -u '$fileName'; fi\"",
+      python = [[cd $dir && sh -c "if [ -f .venv/bin/python ]; then .venv/bin/python -u '$fileName'; else python -u '$fileName'; fi"]],
       perl = 'perl',
       ruby = 'ruby',
       go = 'go mod tidy && go run .',

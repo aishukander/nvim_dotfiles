@@ -21,13 +21,13 @@ local function load_code_runner()
     filetype = {
       c = [[
         cd $dir &&
-        gcc $fileName -o $fileNameWithoutExt &&
-        $dir/$fileNameWithoutExt
+        gcc *.c -o $fileNameWithoutExt &&
+        ./$fileNameWithoutExt
       ]],
       cpp = [[
         cd $dir &&
-        g++ $fileName -o $fileNameWithoutExt
-        && $dir/$fileNameWithoutExt
+        g++ *.cpp -o $fileNameWithoutExt &&
+        ./$fileNameWithoutExt
       ]],
       python = [[
         cd $dir &&

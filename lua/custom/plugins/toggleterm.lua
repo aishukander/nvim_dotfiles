@@ -12,7 +12,6 @@ local function load_toggleterm()
   vim.cmd('packadd toggleterm.nvim')
 
   require('toggleterm').setup {
-    open_mapping = [[<c-\>]],
     direction = 'float',
     float_opts = {
       border = 'curved',
@@ -52,6 +51,7 @@ local function toggle_toggleterm_at_pwd()
 end
 
 vim.keymap.set('n', '<c-\\>', toggle_toggleterm_at_pwd, { desc = 'Toggle Terminal' })
+vim.keymap.set('t', '<c-\\>', function() terminal:toggle() end, { desc = 'Toggle Terminal' })
 vim.keymap.set('n', '<leader>rt', toggle_toggleterm_at_pwd, { desc = 'Open Terminal' })
 
 vim.keymap.set('n', '<leader>g', function()

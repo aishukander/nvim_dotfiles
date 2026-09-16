@@ -22,12 +22,9 @@ end
 local function toggle_toggleterm_at_pwd()
   load_toggleterm()
 
-  local current_file = vim.api.nvim_buf_get_name(0)
-  local dir
+  local dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':p:h')
 
-  if current_file ~= '' then
-    dir = vim.fn.fnamemodify(current_file, ':p:h')
-  else
+  if dir == '' or vim.fn.isdirectory(dir) == 0 then
     dir = vim.fn.getcwd()
   end
 
@@ -50,9 +47,9 @@ local function toggle_toggleterm_at_pwd()
   terminal:toggle()
 end
 
-vim.keymap.set('n', '<c-\\>', toggle_toggleterm_at_pwd, { desc = 'Toggle Terminal' })
-vim.keymap.set('t', '<c-\\>', function() terminal:toggle() end, { desc = 'Toggle Terminal' })
 vim.keymap.set('n', '<leader>rt', toggle_toggleterm_at_pwd, { desc = 'Open Terminal' })
+vim.keymap.set('n', '<c-\\>', toggle_toggleterm_at_pwd, { desc = 'Toggle Terminal' })
+vim.keymap.set('t', '<c-\\>', function () terminal:toggle() end, { desc = 'Toggle Terminal' })
 
 vim.keymap.set('n', '<leader>g', function()
   load_toggleterm()

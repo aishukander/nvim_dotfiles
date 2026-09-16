@@ -19,20 +19,50 @@ local function load_code_runner()
       size = 8,
     },
     filetype = {
+      c = [[
+        cd $dir &&
+        gcc $fileName -o $fileNameWithoutExt &&
+        $dir/$fileNameWithoutExt
+      ]],
+      cpp = [[
+        cd $dir &&
+        g++ $fileName -o $fileNameWithoutExt
+        && $dir/$fileNameWithoutExt
+      ]],
+      python = [[
+        cd $dir &&
+        if [ -f .venv/bin/python ]; then
+          python=".venv/bin/python"
+        elif [ -f ../.venv/bin/python ]; then
+          python="../.venv/bin/python"
+        else
+          python="python"
+        fi
+
+        "$python" -u '$fileName'
+      ]],
+      go = [[
+        cd $dir &&
+        go mod tidy &&
+        go run .
+      ]],
+      rust = [[
+        cd $dir &&
+        cargo run
+      ]],
+      java = [[
+        cd $dir &&
+        javac $fileName &&
+        java $fileNameWithoutExt
+      ]],
       javascript = 'node',
-      java = 'cd $dir && javac $fileName && java $fileNameWithoutExt',
-      c = 'cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
       zig = 'zig run',
-      cpp = 'cd $dir && g++ -fexec-charset=UTF-8 -std=c++23 $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
       ['objective-c'] = 'cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt',
       php = 'php',
-      python = [[cd $dir && sh -c "if [ -f .venv/bin/python ]; then .venv/bin/python -u '$fileName'; else python -u '$fileName'; fi"]],
       perl = 'perl',
       ruby = 'ruby',
-      go = 'go mod tidy && go run .',
       lua = 'lua',
       typescript = 'ts-node',
-      rust = 'cd $dir && cargo run',
     },
   }
 end

@@ -3,6 +3,7 @@ vim.schedule(function()
 end)
 
 local loaded = false
+local terminal
 
 local function load_toggleterm()
   if loaded then return end
@@ -19,15 +20,39 @@ local function load_toggleterm()
   }
 end
 
-vim.keymap.set('n', '<c-\\>', function()
+local function toggle_toggleterm_at_pwd()
   load_toggleterm()
-  vim.cmd 'ToggleTerm'
-end, { desc = 'Toggle Terminal' })
 
-vim.keymap.set('n', '<leader>rt', function()
-  load_toggleterm()
-  vim.cmd 'ToggleTerm'
-end, { desc = 'Open Terminal' })
+  local current_file = vim.api.nvim_buf_get_name(0)
+  local dir
+
+  if current_file ~= '' then
+    dir = vim.fn.fnamemodify(current_file, ':p:h')
+  else
+    dir = vim.fn.getcwd()
+  end
+
+  if terminal and terminal.dir ~= dir then
+    terminal:shutdown()
+    terminal = nil
+  end
+
+  if not terminal then
+    local Terminal = require('toggleterm.terminal').Terminal
+    terminal = Terminal:new {
+      dir = dir,
+      direction = 'float',
+      float_opts = {
+        border = 'curved',
+      },
+    }
+  end
+
+  terminal:toggle()
+end
+
+vim.keymap.set('n', '<c-\\>', toggle_toggleterm_at_pwd, { desc = 'Toggle Terminal' })
+vim.keymap.set('n', '<leader>rt', toggle_toggleterm_at_pwd, { desc = 'Open Terminal' })
 
 vim.keymap.set('n', '<leader>g', function()
   load_toggleterm()

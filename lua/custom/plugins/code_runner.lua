@@ -13,7 +13,7 @@ local function load_code_runner()
   require('code_runner').setup {
     mode = 'term',
     focus = true,
-    startinsert = true,
+    startinsert = false,
     term = {
       position = 'bot',
       size = 8,

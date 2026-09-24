@@ -21,12 +21,12 @@ local function load_code_runner()
     filetype = {
       c = [[
         cd $dir &&
-        gcc *.c -o $fileNameWithoutExt &&
+        clang -std=c23 -Wall *.c -o $fileNameWithoutExt &&
         ./$fileNameWithoutExt
       ]],
       cpp = [[
         cd $dir &&
-        g++ *.cpp -o $fileNameWithoutExt &&
+        clang++ -std=c++23 -Wall *.cpp -o $fileNameWithoutExt &&
         ./$fileNameWithoutExt
       ]],
       python = [[

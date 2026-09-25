@@ -30,16 +30,18 @@ local function load_code_runner()
         ./$fileNameWithoutExt
       ]],
       python = [[
-        cd $dir &&
-        if [ -f .venv/bin/python ]; then
-          python=".venv/bin/python"
-        elif [ -f ../.venv/bin/python ]; then
-          python="../.venv/bin/python"
-        else
-          python="python"
-        fi
+        sh -c '
+          cd $dir &&
+          if [ -f .venv/bin/python ]; then
+            python=".venv/bin/python"
+          elif [ -f ../.venv/bin/python ]; then
+            python="../.venv/bin/python"
+          else
+            python="python"
+          fi
 
-        "$python" -u '$fileName'
+          "$python" -u '$fileName'
+        '
       ]],
       go = [[
         cd $dir &&
